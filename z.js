@@ -13,12 +13,13 @@ Z.prototype.string = function (data) {
 }
 
 
-
 export const P = function () {
-  this.data = Z.prototype
-  console.log(Z)
-
+  Z.call(this)
 }
+
+P.prototype = Object.create(Z.prototype);
+P.prototype.constructor = P;
+
 
 P.prototype.min = function (num) {
   if (this.data.length < num) {
@@ -34,7 +35,7 @@ P.prototype.max = function (num) {
   } else return this;
 }
 
-export const z = new P()
+export const z = new P();
 
 
 
